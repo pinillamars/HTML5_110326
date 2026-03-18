@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0;
+        }
+        button{
+            width: 60px;
+            height: 60px;
+            border-radius: 80px;
+            border: none;
+            margin: 2px;
+            font-size: 25px;
+            font-weight: 250;
+        }
+        body{
+            background-color: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .inputStyle{
+            border: none;
+            text-align: right;
+            width: 250px;
+            height: 50px;
+            font-size: 50px;
+            background-color: black;
+            color: whitesmoke;
+            font-weight: 100;
+        }
+        .buttonCero{
+            width: 100%;
+            text-align: left;
+            padding-left: 25px;
+        }
+        .lightButton{
+            background-color: #a6a6a6;
+            color: black;
+        }
+        .darkButton{
+            background-color: #333;
+            color: whitesmoke;
+        }
+        .accentButton{
+            background-color: #ff9500;
+            color: whitesmoke;
+        }
+        ::-webkit-input-placeholder{
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <table>
+            <tr>
+                <td colspan="4"><input type="number" class="inputStyle" placeholder="0"></td>
+            </tr>
+            <tr>
+                <td><button type="reset" class="lightButton">C</button></td>
+                <td><button class="lightButton">+/-</button></td>
+                <td><button class="lightButton">%</button></td>
+                <td><button class="accentButton">&#247;</button></td>
+            </tr>
+            <tr>
+                <td><button class="darkButton">7</button></td>
+                <td><button class="darkButton">8</button></td>
+                <td><button class="darkButton">9</button></td>
+                <td><button class="accentButton">X</button></td>
+            </tr>
+            <tr>
+                <td><button class="darkButton">4</button></td>
+                <td><button class="darkButton">5</button></td>
+                <td><button class="darkButton">6</button></td>
+                <td><button class="accentButton">-</button></td>
+            </tr>
+            <tr>
+                <td><button class="darkButton">1</button></td>
+                <td><button class="darkButton">2</button></td>
+                <td><button class="darkButton">3</button></td>
+                <td><button class="accentButton">+</button></td>
+
+            </tr>
+            <tr>
+                <td colspan="2"><button class="buttonCero darkButton">0</button></td>
+                <td><button class="darkButton">,</button></td>
+                <td><button class="accentButton">=</button></td>
+            </tr>
+            <tr>
+                <td><button class="accentButton">x^2</button></td>
+                <td><button class="accentButton">x^3</button></td>
+                <td><button class="accentButton">PI</button></td>
+                <td><button class="accentButton">&radic;</button></td>
+            </tr>
+        </table>
+    </main>
+</body>
+</html>
