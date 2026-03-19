@@ -25,14 +25,14 @@
         .icon{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            width: 1vw;
-            height: 1vh;
+            width: 15px;
+            height: 15px;
             border-radius: 50%;
             border: none;
         }
         .apps{
-            width: 1vw;
-            height: 2vh;
+            width: 5px;
+            height: 5px;
             background-color: black;
             border-radius: 50%;
             margin: 1px;
@@ -40,12 +40,35 @@
         .header{
             display: flex;
         }
+        .header a{
+            color: grey;
+            text-decoration: none;
+        }
+        .header a:hover{
+            text-decoration: underline 1px solid grey;
+        }
+        .headerLeft{
+            width: 20vw;
+            margin-left: 2vw;
+            margin-top: 3vh;
+        }
+        .espaciado{
+            padding-left: 1vw;
+        }
+        .headerRight{
+            display: flex;
+            width: 20vw;
+            height: 100%;
+            margin: 2vh 2vw 0 0;
+            align-items: center;
+        }
         .main{
             padding-top: 15vh;
             text-align: center;
         }
         .main > p{
             font-size: 75px;
+            font-weight: 200;
         }
         .red{
             color: red;
@@ -64,6 +87,11 @@
             width: 20vw;
             padding-top: 10px;
         }
+        .buttonStyle{
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: none;
+        }
         .rotate{
             display: inline-block;
             rotate: -15deg;
@@ -71,8 +99,8 @@
         .flexDiv{
             display: flex;
             justify-content: space-between;
-            width: 20vw;
-            height: 3vh;
+            width: 40vw;
+            height: 4vh;
             border: 0.5px solid black;
             border-radius: 6px;
         }
@@ -89,33 +117,40 @@
         .flexIconos{
             display: flex;
         }
+        .bold{
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <a href="">Sobre Google</a>
-        <a href="">Tienda</a>
-        <a href="">Gmail</a>
-        <a href="">Imágenes</a>
-        <div class="icon">
-            <div class="apps"></div>
-            <div class="apps"></div>
-            <div class="apps"></div>
-            <div class="apps"></div>
-            <div class="apps"></div>
-            <div class="apps"></div>
-            <div class="apps"></div>
-            <div class="apps"></div>
-            <div class="apps"></div>
+        <div class="headerLeft">
+            <a href="">Sobre Google</a>
+            <a href="" class="espaciado">Tienda</a>
         </div>
-        <img src="https://picsum.photos/200" alt="imagen de perfil">
+        <div class="headerRight">
+            <a href="">Gmail</a>
+            <a href="">Imágenes</a>
+            <div class="icon">
+                <div class="apps"></div>
+                <div class="apps"></div>
+                <div class="apps"></div>
+                <div class="apps"></div>
+                <div class="apps"></div>
+                <div class="apps"></div>
+                <div class="apps"></div>
+                <div class="apps"></div>
+                <div class="apps"></div>
+            </div>
+            <img src="https://picsum.photos/200" alt="imagen de perfil">
+        </div>
     </div>
     <div class="main">
         <p>
             <span class="blue">G</span><span class="red">o</span><span class="yellow">o</span><span class="blue">g</span><span class="green">l</span><span class="red rotate">e</span>
         </p>
         <div class="flexDiv">
-            <div><img src="../iconos/iconos/plus.png" alt="#" class="buscaIcono"></div>
+            <div class="bold">+</div>
             <div><input type="text" name="buscador" class="search"></div>
             <div class="flexIconos">
                 <img src="../iconos/iconos/google-voice.png" alt="#" class="buscaIcono">
@@ -123,8 +158,8 @@
             </div>
         </div>
         <div class="botones">
-                <button>Buscar con Google</button>
-                <button>Voy a tener suerte</button>
+                <button class="buttonStyle">Buscar con Google</button>
+                <button class="buttonStyle">Voy a tener suerte</button>
         </div>
     </div>
 </body>
