@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mondrian</title>
+    <style>
+        .grid{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 2px;
+            height: 30vh;
+            width: 20vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .gridItem1{
+            background-color: red;
+        }
+        .gridItem2{
+            background-color: yellow;
+        }
+        .gridItem3,
+        .gridItem4,
+        .gridItem8{
+            background-color: whitesmoke;
+        }
+        .gridItem5{
+            background-color: rgb(14, 12, 12);
+        }
+        .gridItem6,
+        .gridItem7,
+        .gridItem9{
+            background-color: azure;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="gridItem1"></div>
+        <div class="gridItem2"></div>
+        <div class="gridItem3"></div>
+        <div class="gridItem4"></div>
+        <div class="gridItem5"></div>
+        <div class="gridItem6"></div>
+        <div class="gridItem7"></div>
+        <div class="gridItem8"></div>
+        <div class="gridItem9"></div>
+    </div>
+</body>
+</html>
