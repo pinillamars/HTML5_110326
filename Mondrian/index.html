@@ -5,36 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mondrian</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         .grid{
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            gap: 2px;
-            height: 30vh;
-            width: 20vh;
+            grid-template-columns: 1fr 1fr 1fr 0.5fr 1fr 1fr;
+            grid-template-rows: repeat(6, 1fr);
+            height: 560px;
+            width: 500px;
+            border: 8px solid black;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
         .gridItem1{
-            background-color: red;
+            box-sizing: border-box;
+            background-color: #E63946;
+            border: 8px solid black;
+            margin: -8px -4px -4px -8px;
+            grid-row: 1 / span 4;
+            grid-column: 1 / 5;
         }
         .gridItem2{
-            background-color: yellow;
+            box-sizing: border-box;
+            background-color: #F1C40F;
+            border: 8px solid black;
+            margin: -8px -8px -4px -4px;
+            grid-row: 1 / 3;
+            grid-column: 5 / 7;
+        }
+        .gridItem5{
+            box-sizing: border-box;
+            background-color: #000;
+            border: 8px solid black;
+            margin: -4px -4px -8px -8px;
+            grid-row: 5 / 7 ;
+            grid-column: 1 / 3;
+        }
+        .gridItem9{
+            box-sizing: border-box;
+            background-color: #1D4ED8;
+            border: 8px solid black;
+            margin: -4px -8px -8px -4px;
+            grid-column: 5 / 7;
         }
         .gridItem3,
         .gridItem4,
-        .gridItem8{
-            background-color: whitesmoke;
-        }
-        .gridItem5{
-            background-color: rgb(14, 12, 12);
-        }
         .gridItem6,
         .gridItem7,
-        .gridItem9{
-            background-color: azure;
+        .gridItem8{
+            box-sizing: border-box;
+            background-color: #F8F9FA;
+            border: 8px solid black;
+        }
+        .gridItem3,
+        .gridItem4{
+            grid-row: 3 / 5;
+            margin: -4px -4px -4px -4px;
+        }
+        .gridItem4{
+            margin-right: -8px;
+        }
+        .gridItem6,
+        .gridItem7{
+            grid-column: 3 / 5;
+            margin: -4px -4px -4px -4px;    
+        }
+        .gridItem8{
+            grid-row: 5 / 6;
+            grid-column: 5 / 7;
+            margin: -4px -8px -4px -4px;
         }
     </style>
 </head>
