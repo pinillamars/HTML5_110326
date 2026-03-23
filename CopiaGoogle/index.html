@@ -1,165 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        *{
-            margin: 0 auto;
-            padding: 0;
-        }
-
-        img{
-            width: 3vw;
-            height: 25%;
-            border-radius: 50%;
-        }
-        p{
-            font-family: 'Google Sans';
-            font-weight: 600;
-        }
-        .icon{
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            border: none;
-        }
-        .apps{
-            width: 5px;
-            height: 5px;
-            background-color: black;
-            border-radius: 50%;
-            margin: 1px;
-        }
-        .header{
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
             display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: space-between;
         }
-        .header a{
-            color: grey;
-            text-decoration: none;
-        }
-        .header a:hover{
-            text-decoration: underline 1px solid grey;
-        }
-        .headerLeft{
-            width: 20vw;
-            margin-left: 2vw;
-            margin-top: 3vh;
-        }
-        .espaciado{
-            padding-left: 1vw;
-        }
-        .headerRight{
-            display: flex;
-            width: 20vw;
-            height: 100%;
-            margin: 2vh 2vw 0 0;
-            align-items: center;
-        }
-        .main{
-            padding-top: 15vh;
-            text-align: center;
-        }
-        .main > p{
-            font-size: 75px;
-            font-weight: 200;
-        }
-        .red{
-            color: red;
-        }
-        .green{
-            color: green;
-        }
-        .yellow{
-            color: yellow;
-        }
-        .blue{
-            color: blue;
-        }
-        .botones{
-            display: flex;
-            width: 20vw;
-            padding-top: 10px;
-        }
-        .buttonStyle{
-            padding: 5px 10px;
-            border-radius: 5px;
-            border: none;
-        }
-        .rotate{
-            display: inline-block;
-            rotate: -15deg;
-        }
-        .flexDiv{
+        .header {
             display: flex;
             justify-content: space-between;
-            width: 40vw;
-            height: 4vh;
-            border: 0.5px solid black;
-            border-radius: 6px;
+            padding: 15px 20px;
+            font-size: 14px;
         }
-        .flexDiv:hover{
-            box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.3);
+        .header-left a,
+        .header-right a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #444;
         }
-        .search{
-            border: none;
+        .header-left a:hover,
+        .header-right a:hover{
+            text-decoration: 1px underline;
         }
-        .buscaIcono{
-            width: 100%;
-            height: 100%;
-        }
-        .flexIconos{
+        .header-right {
             display: flex;
+            align-items: center;
+            gap: 15px;
         }
-        .bold{
-            font-weight: 600;
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 3px);
+            gap: 3px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+        }
+        .apps-grid:hover {
+            background-color: #f0f0f0;
+        }
+        .apps-grid div {
+            width: 3px;
+            height: 3px;
+            background-color: #555;
+            border-radius: 50%;
+        }
+        img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+        .main {
+            text-align: center;
+            margin-top: -80px;
+        }
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 80px;
+            letter-spacing: -2px;
+        }
+        .logo span:nth-child(1) {
+            color: #4285F4;
+        }
+        .logo span:nth-child(2) {
+            color: #EA4335;
+        }
+        .logo span:nth-child(3) {
+            color: #FBBC05;
+        }
+        .logo span:nth-child(4) {
+            color: #4285F4;
+        }
+        .logo span:nth-child(5) {
+            color: #34A853;
+        }
+        .logo span:nth-child(6) {
+            color: #EA4335;
+            display: inline-block;
+            transform: rotate(-10deg);
+        }
+        .search-container {
+            margin-top: 20px;
+        }
+        .search-box {
+            width: 580px;
+            max-width: 90%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            border-radius: 30px;
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+            background: white;
+            transition: box-shadow 0.2s ease;
+        }
+        .search-box:hover {
+            box-shadow: 0 2px 8px rgba(32, 33, 36, 0.35);
+        }
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            padding: 14px 10px;
+        }
+        .search-box:focus-within {
+            box-shadow: 0 2px 8px rgba(32, 33, 36, 0.35);
+            border: 1px solid #dfe1e5;
+        }
+        .search-icon {
+            color: #777;
+            margin-right: 10px;
+        }
+        .right-icons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .mode-btn {
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-size: 12px;
+            background: #f8f9fa;
+            cursor: pointer;
+        }
+        .buttons {
+            margin-top: 25px;
+        }
+        .buttons button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .buttons button:hover {
+            border: 1px solid #ccc;
+        }
+        .languages {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #555;
+        }
+        .languages a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #1a0dab;
+        }
+        .footer {
+            background: #f2f2f2;
+            font-size: 14px;
+        }
+        .footer-top {
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 10px 20px;
+        }
+        .footer a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #555;
+        }
+        .center-message {
+            text-align: center;
+            width: 100%;
+            font-size: 13px;
+            padding: 5px;
+            color: #555;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="headerLeft">
-            <a href="">Sobre Google</a>
-            <a href="" class="espaciado">Tienda</a>
+        <div class="header-left">
+            <a href="#">Sobre Google</a>
+            <a href="#">Tienda</a>
         </div>
-        <div class="headerRight">
-            <a href="">Gmail</a>
-            <a href="">Imágenes</a>
-            <div class="icon">
-                <div class="apps"></div>
-                <div class="apps"></div>
-                <div class="apps"></div>
-                <div class="apps"></div>
-                <div class="apps"></div>
-                <div class="apps"></div>
-                <div class="apps"></div>
-                <div class="apps"></div>
-                <div class="apps"></div>
+        <div class="header-right">
+            <a href="#">Gmail</a>
+            <a href="#">Imágenes</a>
+            <div class="apps-grid">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
             <img src="https://picsum.photos/200" alt="imagen de perfil">
         </div>
     </div>
     <div class="main">
-        <p>
-            <span class="blue">G</span><span class="red">o</span><span class="yellow">o</span><span class="blue">g</span><span class="green">l</span><span class="red rotate">e</span>
-        </p>
-        <div class="flexDiv">
-            <div class="bold">+</div>
-            <div><input type="text" name="buscador" class="search"></div>
-            <div class="flexIconos">
-                <img src="../iconos/iconos/google-voice.png" alt="#" class="buscaIcono">
-                <img src="../iconos/iconos/picture.png" alt="#" class="buscaIcono">
+        <div class="logo">
+            <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+        </div>
+        <div class="search-container">
+            <div class="search-box">
+                <span class="material-icons search-icon">search</span>
+                <input type="text">
+                <div class="right-icons">
+                    <span class="material-icons">mic</span>
+                    <span class="material-icons">photo_camera</span>
+                    <div class="mode-btn">Modo IA</div>
+                </div>
             </div>
         </div>
-        <div class="botones">
-                <button class="buttonStyle">Buscar con Google</button>
-                <button class="buttonStyle">Voy a tener suerte</button>
+        <div class="buttons">
+            <button>Buscar con Google</button>
+            <button>Voy a tener suerte</button>
+        </div>
+        <div class="languages">
+            Ofrecido por Google en:
+            <a href="#">català</a>
+            <a href="#">galego</a>
+            <a href="#">euskara</a>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-top">España</div>
+        <div class="center-message">
+            🌱 Tres décadas de acción climática: descubre lo que estamos haciendo
+        </div>
+        <div class="footer-bottom">
+            <div>
+                <a href="#">Publicidad</a>
+                <a href="#">Empresa</a>
+                <a href="#">Cómo funciona la Búsqueda</a>
+            </div>
+            <div>
+                <a href="#">Privacidad</a>
+                <a href="#">Términos</a>
+                <a href="#">Configuración</a>
+            </div>
         </div>
     </div>
 </body>
