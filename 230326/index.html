@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaciones</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            animation: mover 4s infinite ease-in-out;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: rebeccapurple;
+            transition: all 0.5s ease;
+        }
+        .box2:hover{
+            transform: scale(1.5) rotate(45deg);
+            background-color: aqua;
+        }
+        @keyframes mover{
+            25%{
+                transform: translateX(50px);
+                background-color: red;
+            }
+            50%{
+                transform: translateX(200px);
+                background-color: yellow;
+            }
+            100%{
+                transform: translateX(0);
+                background-color: aquamarine;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box2"></div>
+</body>
+</html>

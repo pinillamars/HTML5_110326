@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaciones Extra</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .container{
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            position: absolute;
+            animation: compleja 6s infinite ease-in-out;
+        }
+        @keyframes compleja{
+            0%{
+                transform: translate(0,0) scale(1) rotate(0deg) scale3d(1, 1, 1);
+                background: blueviolet;
+                border-radius: 0%;
+            }
+            25%{
+                transform: translate(400px, 0) rotate(90deg) scale3d(1.25, 0.75, 1);
+                border-radius: 25%;
+                box-shadow: none;
+            }
+            40%{
+                transform: translate(400px, 0) rotate(90deg) scale3d(0.75, 1.25, 1);
+            }
+            50%{
+                transform: translate(400px, 400px) rotate(180deg) scale3d(1.15, 0.85, 1);
+                background-color: #ff7f50;
+                border-radius: 25%;
+                border: none;
+                box-shadow: 0 0 10px 10px #ff9872;
+            }
+            65%{
+                transform: translate(400px, 400px) rotate(180deg) scale3d(0.95, 1.05, 1);
+            }
+            75%{
+                transform: translate(0, 400px) scale(2) rotate(90deg) rotateY(-180deg) scale3d(1.05, 0.95, 1);
+                background-color: coral;
+                box-shadow: 0 0 10px 10px #ffcfbd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box flip-vertical-left"></div>
+    </div>
+    
+</body>
+</html>
