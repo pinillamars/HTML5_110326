@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        .layout{
+            display: flex;
+            flex-direction: column;
+            background-color: brown;
+            width: 100vw;
+            height: 100vh;
+        }
+        .sidebar{
+            background-color: aqua;
+            height: 10vh;
+            width: 10vw;
+        }
+        .hero{
+            flex:1;
+            width: 100vw;
+            height: 30vh;
+            background-color: blueviolet;
+        }
+        .cards{
+            flex:2;
+            width: 100vw;
+            height: 30vh;
+            background-color: rgb(189, 150, 225);
+        }
+        .stats{
+            flex:3;
+            width: 100vw;
+            height: 30vh;
+            background-color: rgb(242, 229, 255);
+        }
+    </style>
+    </head>
+    <body>
+        <header class="header">Mi header</header>
+        <nav class="nav">Menú</nav>
+        <div class="layout">Layout
+            <aside class="sidebar">Sidebar</aside>
+            <main class="main">
+                <section class="hero">Hero</section>
+                <section class="cards">Card</section>
+                <section class="stats">Stats</section>
+            </main>
+            <aside class="panel"></aside>
+        </div>
+        <footer class="footer"></footer>
+    </body>
+</html>
