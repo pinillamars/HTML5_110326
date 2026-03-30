@@ -27,13 +27,13 @@ switch(animalPreferido){
         break;
 }
 let vehiculo = prompt("¿Qué conduces?");
-
-if(vehiculo.toLowerCase === "coche" || vehiculo.toLowerCase === "moto"){
+console.log(typeof vehiculo)
+if(vehiculo === "coche" || vehiculo === "moto"){
     console.log("vives")}
     else if(vehiculo === "bicicleta"){
         console.log("Ya veremos")
     }
-    else{
+else{
         console.log("Te han mordido")
     }
 
@@ -49,10 +49,10 @@ if(usuario.activo && usuario.emailVerificado && (usuario.rol === "admin" || usua
 else{
     console.log("Acceso denegado")
 }
-
+const EDAD = 24;
 let mensaje = EDAD >= 18 ? "Eres mayor de edad" : "Eres menor de edad";
 
 let number1 = parseInt(prompt("Escribe un número"));
 let number2 = parseInt(prompt("Escribe otro número"));
 
-return number1 === number2 ? "Son iguales" : number1 > number2 ? "El primer número es mayor" : "El segundo número es mayor";
+let result = number1 === number2 ? console.log("Son iguales") : number1 > number2 ? console.log("El primer número es mayor") : console.log("El segundo número es mayor");
