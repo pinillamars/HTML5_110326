@@ -1,7 +1,7 @@
-function saludar (nombre, edad){
-    alert("Hola "+nombre+ ", tienes "+edad+ " años");
-}
-saludar("Marta", 25);
+// function saludar (nombre, edad){
+//     alert("Hola "+nombre+ ", tienes "+edad+ " años");
+// }
+// saludar("Marta", 25);
 
 function sumar(a,b){
     resultado = a+b;
@@ -25,9 +25,13 @@ let precioConIVA = calcularIVA(precioProductos);
 console.log(precioConIVA);
 
 function calcularMayor(a,b,c){
-    let result = a===b&&a>c?console.log("El numero mayor es ")+a:b===c&&b>a?console.log("El numero mayor es "+b):
+    let result =a===b&&a>c?console.log("El numero mayor es ")+a:b===c&&b>a?console.log("El numero mayor es "+b):
     a>b&&a>c?console.log("El numero mayor es "+a):b>a&&b>c?console.log("El numero mayor es "+b):
     console.log("El numero mayor es "+c);
     return result;
 }
 console.log(calcularMayor(50, 29, 10));
+
+setTimeout(function(){
+    console.log("han pasado 10 segundos")
+}, 5000); //alert y console.log no hacen el delay, tienen que estar dentro de una función para hacerlo
