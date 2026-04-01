@@ -23,3 +23,11 @@ function calcularIVA(precio){
 let precioProductos = 100;
 let precioConIVA = calcularIVA(precioProductos);
 console.log(precioConIVA);
+
+function calcularMayor(a,b,c){
+    let result = a===b&&a>c?console.log("El numero mayor es ")+a:b===c&&b>a?console.log("El numero mayor es "+b):
+    a>b&&a>c?console.log("El numero mayor es "+a):b>a&&b>c?console.log("El numero mayor es "+b):
+    console.log("El numero mayor es "+c);
+    return result;
+}
+console.log(calcularMayor(50, 29, 10));
