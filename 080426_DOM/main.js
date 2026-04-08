@@ -6000,6 +6000,10 @@ let alojamientos = [
     "img": "https://picsum.photos/400/300?random=999"
   }
 ];
+alojamientos = alojamientos.map(a => ({
+    ...a,
+    rating: a.rating || 0
+}));
 const style = document.createElement("style");
 style.textContent = `
 body {
@@ -6032,6 +6036,9 @@ header {
     padding: 20px;
 }
 .card {
+    display: flex;
+    flex-direction: column;
+    padding: 15px
     width: 250px;
     background-color: white;
     border-radius: 8px;
@@ -6108,6 +6115,22 @@ button {
 .dark-theme .btn-favs {
     background-color: #c0392b;
 }
+.estrellas {
+    display: flex;
+    gap: 4px;
+}
+.estrellas span {
+    font-size: 20px;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.2s, transform 0.1s;
+}
+.estrellas span.activa {
+    color: gold;
+}
+.estrellas span:hover {
+    transform: scale(1.2);
+}
 `;
 document.head.appendChild(style);
 const header = document.createElement("header");
@@ -6143,6 +6166,10 @@ function renderAlojamientos(lista) {
         const precio = document.createElement("p");
         precio.textContent = alojamiento.precio;
         const favBtn = document.createElement("button");
+        const estrellas = crearEstrellas(alojamiento.rating || 0, (nuevoRating) => {
+        alojamiento.rating = nuevoRating;
+        saveRatings();
+        renderAlojamientos(lista);});
         favBtn.className = "fav-btn";
         favBtn.textContent = isFavorite(alojamiento.id) ? "❤️" : "🤍";
         favBtn.addEventListener("click", (e) => {
@@ -6157,6 +6184,7 @@ function renderAlojamientos(lista) {
         card.addEventListener("click", () => {
             alert("Seleccionado: " + alojamiento.titulo);
         });
+        card.appendChild(estrellas);
         container.appendChild(card);
     });
 };
@@ -6175,7 +6203,7 @@ if (savedTheme === "dark") {
     document.body.classList.add("dark-theme");
 } else {
     document.body.classList.add("light-theme");
-}
+};
 toggleBtn.addEventListener("click", () => {
     if (document.body.classList.contains("light-theme")) {
         document.body.classList.replace("light-theme", "dark-theme");
@@ -6190,13 +6218,13 @@ toggleBtn.addEventListener("click", () => {
 function loadFavorites() {
     const stored = localStorage.getItem("favoritos");
     return stored ? JSON.parse(stored) : [];
-}
+};
 function saveFavorites() {
     localStorage.setItem("favoritos", JSON.stringify(favoritos));
-}
+};
 function isFavorite(id) {
     return favoritos.some(f => f.id === id);
-}
+};
 function toggleFavorite(item) {
     if (isFavorite(item.id)) {
         favoritos = favoritos.filter(f => f.id !== item.id);
@@ -6205,12 +6233,63 @@ function toggleFavorite(item) {
     }
     saveFavorites();
 };
+function crearEstrellas(rating, onClick) {
+    const contenedor = document.createElement("div");
+    contenedor.className = "estrellas";
+    let currentRating = rating;
+    function pintarEstrellas(valor) {
+        const estrellas = contenedor.querySelectorAll("span");
+        estrellas.forEach((estrella, index) => {
+            if (index < valor) {
+                estrella.classList.add("activa");
+            } else {
+                estrella.classList.remove("activa");
+            }
+        });
+    }
+    for (let i = 1; i <= 5; i++) {
+        const estrella = document.createElement("span");
+        estrella.textContent = "★";
+        estrella.addEventListener("mouseenter", () => {
+            pintarEstrellas(i);
+        });
+        estrella.addEventListener("click", (e) => {
+            e.stopPropagation();
+            currentRating = i;
+            onClick(i);
+        });
+        contenedor.appendChild(estrella);
+    }
+    contenedor.addEventListener("mouseleave", () => {
+        pintarEstrellas(currentRating);
+    });
+    pintarEstrellas(rating);
+    return contenedor;
+};
+function saveRatings() {
+    localStorage.setItem("ratings", JSON.stringify(alojamientos));
+};
+function loadRatings() {
+    const stored = localStorage.getItem("ratings");
+    if (stored) {
+        const parsed = JSON.parse(stored);
+        parsed.forEach(r => {
+            const item = alojamientos.find(a => a.id === r.id);
+            if (item) item.rating = r.rating;
+        });
+    }
+};
 function renderFavoritos() {
     container.innerHTML = "";
     if (favoritos.length === 0) {
         container.innerHTML = "<p style='text-align:center'>No tienes favoritos aún.</p>";
         return;
     }
+    const estrellas = crearEstrellas(alojamiento.rating || 0, (nuevoRating) => {
+    alojamiento.rating = nuevoRating;
+    saveRatings();
+    renderFavoritos();});
+    card.appendChild(estrellas);
     favoritos.forEach(alojamiento => {
         const card = document.createElement("div");
         card.className = "card";
